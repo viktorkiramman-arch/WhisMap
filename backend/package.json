@@ -1,0 +1,48 @@
+{
+  "name": "@whismap/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "WhisMap V5 backend foundation: Fastify, PostgreSQL, Prisma, and modular REST APIs.",
+  "engines": {
+    "node": ">=22.0.0",
+    "bun": ">=1.1.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "check": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate:dev": "prisma migrate dev",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "@fastify/helmet": "^13.0.1",
+    "@fastify/jwt": "^10.0.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "@fastify/swagger": "^9.4.0",
+    "@fastify/swagger-ui": "^5.2.0",
+    "@prisma/client": "^6.7.0",
+    "argon2": "^0.41.1",
+    "dotenv": "^16.5.0",
+    "fastify": "^5.8.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "eslint": "^9.27.0",
+    "prisma": "^6.7.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.3",
+    "pino-pretty": "^13.0.0",
+    "typescript-eslint": "^8.32.0"
+  }
+}
