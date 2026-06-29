@@ -7,7 +7,7 @@ import { allowedOrigins, env } from '../config/env.js'
 
 export const installSecurity = async (app: FastifyInstance): Promise<void> => {
   await app.register(helmet, {
-    contentSecurityPolicy: env.NODE_ENV === 'production' ? undefined : false,
+    ...(env.NODE_ENV === 'production' ? {} : { contentSecurityPolicy: false }),
     crossOriginResourcePolicy: { policy: 'cross-origin' }
   })
 

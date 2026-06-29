@@ -13,6 +13,7 @@ const environmentSchema = z.object({
   REDIS_URL: z.string().url().optional(),
   JWT_ACCESS_SECRET: z.string().min(32),
   DATA_ENCRYPTION_KEY_BASE64: z.string().min(44),
+  MEDIA_STORAGE_DIR: z.string().min(1).default('uploads/media'),
   S3_ENDPOINT: z.string().url().optional(),
   S3_REGION: z.string().min(1).optional(),
   S3_BUCKET: z.string().min(1).optional(),

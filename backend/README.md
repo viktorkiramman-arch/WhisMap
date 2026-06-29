@@ -63,14 +63,37 @@ The API health endpoint runs at `http://localhost:4000/health`. OpenAPI UI runs 
 | Module | Owns |
 |---|---|
 | `auth` | account registration, login, access control, session lifecycle |
+| `database` | PostgreSQL connectivity checks for admins |
+| `map` | public approximate map markers for reports, sightings, and colonies |
+| `geocoding` | privacy-preserving local geocode and reverse-geocode helpers |
+| `media` | authenticated image upload, local development storage, metadata, visibility rules |
+| `email` | admin-only outbound email queueing through notification records |
+| `anti-spam` | rate-limited server-side content scoring |
+| `notifications` | in-app/email/push notification creation, listing, and read state |
 | `cats` | cat profiles, household membership, cat-facing privacy controls |
 | `care` | health observations, feeding, litter, behaviour, routines, sitter access, supplies, timeline |
 | `lost-found` | lost/found reports, protected location handling, report lifecycle, contact requests |
 | `sightings` | user sightings and possible-report matches |
 | `colonies` | protected colony records, trusted caregiver access, care activity |
 | `moderation` | verification, review queues, expiry, abuse reports, audit trail |
-| `media` | signed uploads, scanning pipeline, visibility rules, deletion lifecycle |
-| `notifications` | email/push/in-app notification preferences and delivery jobs |
+
+## Implemented v1 endpoints
+
+| Endpoint | Access | Purpose |
+|---|---|---|
+| `POST /api/v1/auth/register` | public, rate-limited | create an account |
+| `POST /api/v1/auth/login` | public, rate-limited | issue a JWT access token |
+| `GET /api/v1/auth/me` | authenticated | return the current account |
+| `GET /api/v1/database/status` | admin | check PostgreSQL connectivity |
+| `GET /api/v1/map/markers` | public | return public approximate map markers |
+| `POST /api/v1/geocoding/forward` | public, rate-limited | normalize an area or coordinate query |
+| `POST /api/v1/geocoding/reverse` | public, rate-limited | return an approximate area label for coordinates |
+| `POST /api/v1/media/images` | authenticated, rate-limited | upload a validated image to local development storage and register metadata |
+| `POST /api/v1/email/send` | admin, rate-limited | queue an outbound email notification |
+| `POST /api/v1/anti-spam/check` | public, rate-limited | score submitted content for spam signals |
+| `GET /api/v1/notifications` | authenticated | list the current user's notifications |
+| `POST /api/v1/notifications` | admin | create a notification for a user |
+| `PATCH /api/v1/notifications/:id/read` | authenticated | mark a notification as read |
 
 ## Security rules that must remain server-side
 
@@ -85,7 +108,7 @@ The API health endpoint runs at `http://localhost:4000/health`. OpenAPI UI runs 
 
 ## What is intentionally not live yet
 
-Only health and authentication foundation routes are implemented in this initial backend structure. Feature routes are planned and their database models are present. Do not attach the frontend to care, report, or media write endpoints until authorization, moderation, object storage, and tests for each module are implemented.
+Care, cat profile, lost-found report, sighting, colony, and moderation write routes are still planned. The media route uses local development storage and records assets with `PENDING` scan status; production should replace this with private object storage, signed upload URLs, and a scanning worker before serving user media.
 
 ## Suggested deployment
 
