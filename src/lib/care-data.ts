@@ -1,3 +1,5 @@
+import { withBasePath } from './site-paths'
+
 export type CatProfile = {
   id: string
   name: string
@@ -92,7 +94,7 @@ export const careSeed: CareState = {
       name: 'Mochi',
       ageLabel: '2 years',
       careType: 'Indoor',
-      photoSrc: '/cats/mochi-orange-tabby.png',
+      photoSrc: withBasePath('/cats/mochi-orange-tabby.png'),
       note: 'Blue collar at home. Likes a quiet room after meals.',
     },
     {
@@ -100,7 +102,7 @@ export const careSeed: CareState = {
       name: 'Nori',
       ageLabel: '4 years',
       careType: 'Indoor',
-      photoSrc: '/cats/tuxedo-bus-stop.png',
+      photoSrc: withBasePath('/cats/tuxedo-bus-stop.png'),
       note: 'Separate meals from Mochi and leave water in the kitchen.',
     },
     {
@@ -108,7 +110,7 @@ export const careSeed: CareState = {
       name: 'Biscuit',
       ageLabel: 'Community care',
       careType: 'Community',
-      photoSrc: '/cats/biscuit-tabby-kitten.png',
+      photoSrc: withBasePath('/cats/biscuit-tabby-kitten.png'),
       note: 'Observe from a distance; do not publish the feeding location.',
     },
   ],

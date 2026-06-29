@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight, HeartPulse, MapPin, ShieldCheck, Siren } from 'lucide-react'
+import { withBasePath } from '@/lib/site-paths'
 
 export default function Hero() {
   return (
@@ -9,7 +10,7 @@ export default function Hero() {
         <div className="grid min-h-[650px] grid-cols-1 lg:grid-cols-[1.02fr_0.98fr]">
           <div className="relative min-h-[380px] overflow-hidden bg-[#eee9e2] lg:min-h-0">
             <Image
-              src="/cats/mochi-orange-tabby.png"
+              src={withBasePath('/cats/mochi-orange-tabby.png')}
               alt="An orange tabby cat looking upward"
               fill
               priority

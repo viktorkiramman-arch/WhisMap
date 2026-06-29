@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { withBasePath } from '@/lib/site-paths'
 
 export type WhisMapLogoProps = {
   compact?: boolean
@@ -21,7 +22,7 @@ export default function WhisMapLogo({
     <span className={`inline-flex min-w-0 items-center gap-2.5 ${className}`}>
       <span className="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-[14px] bg-white ring-1 ring-black/5">
         <Image
-          src="/brand/whismap-pin.png"
+          src={withBasePath('/brand/whismap-pin.png')}
           alt=""
           fill
           priority

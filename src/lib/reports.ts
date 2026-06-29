@@ -1,3 +1,5 @@
+import { withBasePath } from './site-paths'
+
 export type CatColor = 'orange' | 'black' | 'white' | 'gray' | 'brown' | 'tabby' | 'calico' | 'tuxedo' | 'other'
 
 export const catColorLabels: Record<CatColor, string> = {
@@ -47,7 +49,7 @@ export const sampleLostFoundReports: LostFoundReport[] = [
     description: 'Orange tabby with a small left-ear notch and a blue collar. Friendly with familiar voices. Last seen near the public garden entrance.',
     location: 'Riverside Garden area',
     date: '2026-06-22',
-    photoSrc: '/cats/mochi-orange-tabby.png',
+    photoSrc: withBasePath('/cats/mochi-orange-tabby.png'),
     contactName: 'Report owner',
     contactMethod: 'Protected contact request',
     status: 'active',
@@ -63,7 +65,7 @@ export const sampleLostFoundReports: LostFoundReport[] = [
     description: 'Black-and-white cat observed near a public transit area. Appears well-fed and cautious around strangers. No public contact details are shown.',
     location: 'South Station area',
     date: '2026-06-21',
-    photoSrc: '/cats/tuxedo-bus-stop.png',
+    photoSrc: withBasePath('/cats/tuxedo-bus-stop.png'),
     contactName: 'Report owner',
     contactMethod: 'Protected contact request',
     status: 'active',
@@ -80,7 +82,7 @@ export const sampleLostFoundReports: LostFoundReport[] = [
     description: 'Black short-haired cat with green eyes. Shy around strangers and last seen near a library courtyard. Keep distance and report a clear sighting.',
     location: 'Library Courtyard area',
     date: '2026-06-20',
-    photoSrc: '/cats/shadow-black-cat.png',
+    photoSrc: withBasePath('/cats/shadow-black-cat.png'),
     contactName: 'Report owner',
     contactMethod: 'Protected contact request',
     status: 'active',
@@ -96,7 +98,7 @@ export const sampleLostFoundReports: LostFoundReport[] = [
     description: 'Young adult calico observed under parked vehicles during rain. The public record uses a broad area and does not identify the person who reported it.',
     location: 'Old Market area',
     date: '2026-06-19',
-    photoSrc: '/cats/calico-rain.png',
+    photoSrc: withBasePath('/cats/calico-rain.png'),
     contactName: 'Report owner',
     contactMethod: 'Protected contact request',
     status: 'active',
@@ -113,7 +115,7 @@ export const sampleLostFoundReports: LostFoundReport[] = [
     description: 'Brown tabby with white paws and a pink nose. This report is kept for outcome context and is marked resolved in the local demo data.',
     location: 'North School area',
     date: '2026-06-18',
-    photoSrc: '/cats/biscuit-tabby-kitten.png',
+    photoSrc: withBasePath('/cats/biscuit-tabby-kitten.png'),
     contactName: 'Report owner',
     contactMethod: 'Protected contact request',
     status: 'resolved',

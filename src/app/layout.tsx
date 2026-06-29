@@ -4,11 +4,12 @@ import './globals.css'
 import Navbar from '@/components/nav/Navbar'
 import Footer from '@/components/Footer'
 import FallingCats from '@/components/background/FallingCats'
+import { withBasePath } from '@/lib/site-paths'
 
 export const metadata: Metadata = {
   title: { default: 'WhisMap', template: '%s | WhisMap' },
   description: 'A privacy-first space for community cat care, protected lost-cat reporting, and personal cat routines.',
-  icons: { icon: '/favicon.svg' },
+  icons: { icon: withBasePath('/favicon.svg') },
 }
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
